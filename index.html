@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport"
         content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-    <title>Happy Birthday My Love Ade Mila!</title>
+    <title>Happy Birthday My Love Ajeng Widuri!</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Outfit:wght@300;400;600&display=swap"
         rel="stylesheet">
@@ -13,7 +13,7 @@
 
 <body>
     <audio id="bg-music" loop>
-        <source src="audio/Shape-of-My-Heart.mp3" type="audio/mpeg">
+        <source src="audio/Kasih Putih - Glenn Fredly (Lyrics_Lirik).mp3" type="audio/mpeg">
     </audio>
 
     <div id="music-popup" class="music-popup">
@@ -21,9 +21,9 @@
         <img src="img/3.jpeg" alt="Album Cover" class="album-cover">
         <div class="music-info">
             <div class="song-title-wrapper">
-                <p class="song-title">Shape Of My Heart</p>
+                <p class="song-title">Kasih Putih</p>
             </div>
-            <p class="artist-name">Backstreet Boys</p>
+            <p class="artist-name">Glenn Fredly</p>
         </div>
         <button id="play-pause-btn" class="play-pause-btn" onclick="toggleMusic()">
             <!-- SVG Pause Icon -->
@@ -148,7 +148,7 @@
     <div id="pin-screen" style="display: flex;" class="active">
         <div class="pin-container glass-panel">
             <h2>Enter PIN</h2>
-            <p style="margin-bottom: 2px;">passwordnya tanggal lahir kamu + bulan lahir aku yaa.</p>
+            <p style="margin-bottom: 2px;">passwordnya tanggal ultah mu + tanggal ultah ku yaa.</p>
             <p style="margin-top: 0; font-size: 0.5rem;"> (awas aja kalau lupa!!))</p>
             <input type="password" id="pin-input" maxlength="4" placeholder="****" inputmode="numeric" pattern="[0-9]*">
         </div>
@@ -177,7 +177,7 @@
             <h1 class="aesthetic-font fade-in-text">Happy Birthday,<br>My Favorite Person</h1>
             <p class="aesthetic-font fade-in-text"
                 style="font-size: 1.3rem; color: #c71585; margin-top: 10px; margin-bottom: 10px; letter-spacing: 2px;">-
-                Ade Mila -</p>
+                Ajeng Widuri -</p>
             <img src="img/foto-pacar.png" alt="Foto Pacar" class="birthday-photo fade-in-text">
             <p class="typing-text">Hari ini jadi salah satu hari yang spesial, karena di hari ini kamu lahir dan tumbuh
                 jadi seseorang yang luar biasa.</p>
@@ -218,7 +218,7 @@
             <div class="solar-system">
                 <div class="orbit-track">
 
-                    <div class="planet-card item1" data-caption="Ramen">
+                    <div class="planet-card item1" data-caption="Seblak">
                         <img src="img/favorite-food.jpg" alt="Food">
                         <p class="planet-caption">Your favorite food</p>
                     </div>
@@ -229,15 +229,22 @@
                     </div>
 
                     <div class="planet-card item3"
-                        data-embed="https://open.spotify.com/embed/track/5y2ijHECwFYWqcAHKTZgzD?utm_source=generator&si=92f82ac84a964ebf"
-                        data-caption="Risk it all - Bruno Mars">
+                        data-embed="https://open.spotify.com/embed/track/3FPlY1uqTe1oFfIgI0BnoA?utm_source=generator&si=591d4909dfaf402e"
+                        data-caption="Beranjak Dewasa - Nadin Amizah">
                         <img src="img/favorite-song.jpg" alt="Song">
                         <p class="planet-caption">Your favorite song</p>
                     </div>
 
-                    <div class="planet-card item4" data-caption="Dion Apriyadi">
+                    <div class="planet-card item4" data-caption="Avrillo Dico">
                         <img src="img/favorite-person.jpg" alt="Person">
                         <p class="planet-caption">Your favorite person</p>
+                    </div>
+
+                    <div class="planet-card item5"
+                        data-embed="https://www.youtube.com/embed/1Aty0z1rDFE?si=RnHGpItRUCx00uS8"
+                        data-caption="Nadia Omara">
+                        <img src="img/favorite-yt.jpg" alt="YouTube">
+                        <p class="planet-caption">Your favorite YT channel</p>
                     </div>
 
                 </div>
@@ -287,29 +294,44 @@
             </div>
         </section>
 
-        <!-- VIDEO SECTION (2 Video sesuai rasio asli file di bawah Core Memories) -->
+        <!-- VIDEO SECTION (2 Video menyesuaikan rasio aspek asli file di bawah Core Memories) -->
         <section class="slide photo-panel show-on-scroll video-section">
             <div class="video-section-header">
                 <h2 class="aesthetic-font video-section-title">You, and Us ✨</h2>
                 <p class="video-section-subtitle">every shade of you, and every sweet moment we share</p>
             </div>
 
-            <div class="video-container">
+            <div class="video-container layout-landscape">
                 <!-- Video 1 -->
-                <div class="video-card">
+                <article class="video-card video-landscape">
                     <div class="video-tape"></div>
-                    <video class="memory-video" src="video/1.mp4" autoplay loop muted playsinline preload="auto"
-                        controls></video>
-                    <button class="video-fullscreen-btn" type="button" aria-label="Layar penuh">⛶</button>
-                </div>
+                    <div class="video-frame" style="--video-aspect: 832 / 464;">
+                        <video class="memory-video" src="video/1.mp4" autoplay loop muted playsinline preload="auto"
+                            controls></video>
+                        <button class="video-fullscreen-btn" type="button" aria-label="Layar penuh">⛶</button>
+                    </div>
+                    <div class="video-caption-box">
+                        <p class="video-caption">Worth Every Climb With You</p>
+                        <p class="video-caption-sub">Chilly mountain air, tired steps, and your playful smile — every
+                            climb feels effortless as long as I'm walking it beside you.</p>
+                    </div>
+                </article>
 
                 <!-- Video 2 -->
-                <div class="video-card">
+                <article class="video-card video-landscape">
                     <div class="video-tape"></div>
-                    <video class="memory-video" src="video/2.mp4" autoplay loop muted playsinline preload="auto"
-                        controls></video>
-                    <button class="video-fullscreen-btn" type="button" aria-label="Layar penuh">⛶</button>
-                </div>
+                    <div class="video-frame" style="--video-aspect: 832 / 464;">
+                        <video class="memory-video" src="video/2.mp4" autoplay loop muted playsinline preload="auto"
+                            controls></video>
+                        <button class="video-fullscreen-btn" type="button" aria-label="Layar penuh">⛶</button>
+                    </div>
+                    <div class="video-caption-box">
+                        <p class="video-caption">Golden Hour &amp; Your Sweetest Smile</p>
+                        <p class="video-caption-sub">Warm afternoon sunlight on your face, a gentle breeze, and the
+                            laughter we couldn't hold back — my favorite journey will always be riding through life
+                            with you.</p>
+                    </div>
+                </article>
             </div>
         </section>
 
@@ -405,7 +427,7 @@
             <hr style="border: 0; border-top: 1px solid rgba(255, 105, 180, 0.3); margin-bottom: 20px;">
             <p style="font-size: 0.9rem; opacity: 0.8; margin-bottom: 5px;">From your sweetheart,
             </p>
-            <p class="sender-name aesthetic-font baby-pink-text" style="font-size: 2rem; margin-top: 5px;">Dion Apriyadi
+            <p class="sender-name aesthetic-font baby-pink-text" style="font-size: 2rem; margin-top: 5px;">Avrillo Dico
             </p>
 
             <!-- Tombol Tiup Lilin -->
@@ -433,7 +455,7 @@
                                 <div class="flame-inner"></div>
                             </div>
                             <div class="candle-number-body">
-                                <span class="candle-digit">2</span>
+                                <span class="candle-digit">1</span>
                             </div>
                         </div>
                         <!-- Angka 4 -->
@@ -442,7 +464,7 @@
                                 <div class="flame-inner"></div>
                             </div>
                             <div class="candle-number-body">
-                                <span class="candle-digit">5</span>
+                                <span class="candle-digit">8</span>
                             </div>
                         </div>
                     </div>

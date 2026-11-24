@@ -245,7 +245,7 @@
         const pinPopupClose = document.getElementById('pin-popup-close');
 
         // DEFAULT PIN: Silakan ubah angka ini jika ingin PIN lain
-        const SECRET_PIN = "2511";
+        const SECRET_PIN = "1119";
 
         let pinAttempt = 0;
         let popupTimeout = null;
@@ -766,16 +766,56 @@ function showMusicPopup() {
 })();
 
 // ==========================================
-// VIDEO BERDAMPINGAN (PUTAR BERSAMAAN & AUTO-PAUSE BACKSOUND SAAT UNMUTE)
+// VIDEO ADAPTIF RASIO ASLI (PUTAR BERSAMAAN & AUTO-PAUSE BACKSOUND SAAT UNMUTE)
 // ==========================================
 document.addEventListener('DOMContentLoaded', () => {
     const videos = document.querySelectorAll('.memory-video');
     const videoSection = document.querySelector('.video-section');
+    const videoContainer = document.querySelector('.video-container');
     const bgMusic = document.getElementById('bg-music');
     const iconPlay = document.getElementById('icon-play');
     const iconPause = document.getElementById('icon-pause');
 
     if (videos.length === 0) return;
+
+    function updateVideoLayoutMode() {
+        if (!videoContainer) return;
+        const cards = Array.from(videoContainer.querySelectorAll('.video-card'));
+        if (cards.length === 0) return;
+
+        const allPortrait = cards.every((card) => card.classList.contains('video-portrait'));
+        videoContainer.classList.toggle('layout-portrait', allPortrait);
+        videoContainer.classList.toggle('layout-landscape', !allPortrait);
+    }
+
+    function applyVideoAspectRatio(video) {
+        const w = video.videoWidth;
+        const h = video.videoHeight;
+        if (!w || !h) return;
+
+        const card = video.closest('.video-card');
+        const frame = video.closest('.video-frame');
+        const ratioStr = `${w} / ${h}`;
+
+        if (frame) {
+            frame.style.setProperty('--video-aspect', ratioStr);
+            frame.style.aspectRatio = ratioStr;
+        }
+
+        if (card) {
+            const ratio = w / h;
+            card.classList.remove('video-landscape', 'video-portrait', 'video-square');
+            if (ratio > 1.15) {
+                card.classList.add('video-landscape');
+            } else if (ratio < 0.87) {
+                card.classList.add('video-portrait');
+            } else {
+                card.classList.add('video-square');
+            }
+        }
+
+        updateVideoLayoutMode();
+    }
 
     let bgPausedByVideo = false;
     let pauseCheckTimer = null;
@@ -830,6 +870,12 @@ document.addEventListener('DOMContentLoaded', () => {
         // Pastikan default selalu mute
         video.muted = true;
         video.defaultMuted = true;
+
+        // Sesuaikan rasio aspek frame & tata letak otomatis berdasarkan metadata file video
+        if (video.readyState >= 1 && video.videoWidth > 0) {
+            applyVideoAspectRatio(video);
+        }
+        video.addEventListener('loadedmetadata', () => applyVideoAspectRatio(video));
 
         video.addEventListener('volumechange', () => {
             if (!video.muted && video.volume > 0) {
